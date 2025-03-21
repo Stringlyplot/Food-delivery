@@ -1,13 +1,13 @@
 money = "$"
-resturants = ["Welcome to Chipotle", "Welcome to Q39", "Chiptole & Q39"]
 #list in a dictinoary for the prices of each item
 resturant_menu_items = [{"1": 7.95, "2": 9.30, "3": 8.50}, {"1": 13.25, "2": 16.50, "3": 12.99}]
 chipotle_items = [["Chicken burrito", "Steak burrito bowl", "Chicken Quesadilla"], ["Wings", "Burnt End Burger","Brisket"]]
-
+#Has the menu for chipotle
 def chipotle_menu():
     #chipotle menu
     chipotle = ("\nChipotle menu: \n1 - Chicken burrito $7.95 \n2 - Steak burrito bowl $ 9.30 \n3- Chicken Quesadilla $8.50\n\nEnter 1/2/3 to add items to your order")
     return chipotle
+#Has the menu for Q39
 def q39_menu():
     #Q39 menu
     q39 = ("\nQ39 menu: \n1 - Wings $13.25\n2 - Burnt End Burger $ 16.50\n3 - Brisket $12.99\n\nEnter 1/2/3 to add items to your order")
@@ -39,15 +39,16 @@ def overall_order(menus_choice):
         order_quantity += order * quantity
         #Tells me # of food items ex: you ordered 2 of chicken burrito
         print("You ordered", quantity, "of", chipotle_items[menus_choice - 1][int(meal) - 1])
-        
+        #Prints out the price for the item not the overall but the subtotal
         print("Your total for now is:", round(order_quantity, 2))
+        #This will either repeat the loop or break depending on the user
         if input("Anything else(Y/N): ").lower() in ["y", "yes", "es", "ys"]:
             pass
         else:
             break
     
-
+#This calls the function to start the program
 user_resturant_choice = introduction()
+#This is the main program that has everything the foundation
 overall_order(user_resturant_choice)
-#Picks the resturant that the user picks
 
